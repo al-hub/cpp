@@ -103,3 +103,62 @@ Item: Emerald, Quantity: 6, Value: 5.5
 ```
 
 
+
+- 숲 속의 마법 학교에서는 동물들이 각자 마법, 물약, 비행 과목에서 시험을 보았습니다.
+- 여우, 곰, 부엉이, 토끼는 열심히 공부하여 좋은 성적을 거두었습니다.
+- 학교는 이 동물들의 성적을 관리하기 위해 특별한 성적표 시스템을 도입했습니다.
+- 이 시스템은 각 학생의 이름과 과목별 점수를 효율적으로 저장하고 출력하는 기능을 제공합니다.
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <map>
+#include <tuple>
+#include <string>
+
+// 학생의 성적 정보를 저장하는 데이터 구조
+using GradeBook = std::vector<std::map<const std::string, std::tuple<int, int, int>>>;
+
+// 클래스의 성적을 출력하는 함수
+void printClassGrades(const std::map<const std::string, std::tuple<int, int, int>>& classGrades) {
+    for (const auto& [name, grades] : classGrades) {
+        std::cout << name << ": ";
+        std::cout << "Magic: " << std::get<0>(grades) << ", ";
+        std::cout << "Potion: " << std::get<1>(grades) << ", ";
+        std::cout << "Flying: " << std::get<2>(grades) << std::endl;
+    }
+}
+
+// 성적을 처리하는 템플릿 함수
+template <typename T>
+void processGrades(const GradeBook& magicGrades, T printFunc) {
+    for (const auto& classGrades : magicGrades) {
+        printFunc(classGrades);
+    }
+}
+
+int main() {
+    // 성적 데이터 초기화
+    GradeBook magicGrades = {
+        {
+            {"Fox", std::make_tuple(92, 88, 91)},
+            {"Bear", std::make_tuple(85, 87, 90)}
+        },
+        {
+            {"Owl", std::make_tuple(95, 94, 97)},
+            {"Rabbit", std::make_tuple(88, 86, 89)}
+        }
+    };
+
+    // 성적 출력 람다 함수 정의
+    auto printGrades = [](const std::map<const std::string, std::tuple<int, int, int>>& classGrades) {
+        printClassGrades(classGrades);
+    };
+
+    // 성적 데이터 처리 및 출력
+    processGrades(magicGrades, printGrades);
+
+    return 0;
+}
+
+```
