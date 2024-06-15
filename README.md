@@ -1,6 +1,6 @@
 # cpp
 
-## std::
+## auto magicBox = std::make_shared<MagicBox<std::string>>()
 
 - story
     - 숲 속에는 전설적인 마법 상자가 있었습니다.
@@ -102,7 +102,26 @@ Item: Emerald, Quantity: 6, Value: 5.5
 
 ```
 
+## const std:string&
+```cpp
+#include <iostream>
+#include <string>
 
+void printMessage(const std::string& message) {
+    std::cout << message << std::endl;
+}
+
+int main() {
+    std::string greeting = "Hello, World!";
+    
+    printMessage(greeting); 
+    printMessage("Hello, Literal!");
+    
+    return 0;
+}
+```
+
+## std::vector, std::map, std::tuple
 
 - 숲 속의 마법 학교에서는 동물들이 각자 마법, 물약, 비행 과목에서 시험을 보았습니다.
 - 여우, 곰, 부엉이, 토끼는 열심히 공부하여 좋은 성적을 거두었습니다.
