@@ -181,3 +181,57 @@ Resource Info:
 Item: Emerald, Quantity: 6, Value: 5.5
 
 ```
+
+## 순수가상함수
+- 오구현 오류
+```cpp
+// 오류 발생 코드
+class Base {
+public:
+    virtual void func(); // 순수 가상 함수로 선언되지 않음
+};
+
+class Derived : public Base {
+public:
+    void func() override {
+        // Derived 클래스에서 func 함수를 구현함
+    }
+};
+
+int main() {
+    Derived d;
+    Base* b = &d;
+    b->func();
+    return 0;
+}
+```
+
+- 오류 메세지
+```shell
+/tmp/ccK6ZtMI.o: In function `main':
+main.cpp:(.text+0x2f): undefined reference to `Base::func()'
+collect2: error: ld returned 1 exit status
+```
+
+- 수정
+```cpp
+// 수정된 코드
+class Base {
+public:
+    virtual void func() = 0; // 순수 가상 함수로 선언
+};
+
+class Derived : public Base {
+public:
+    void func() override {
+        // Derived 클래스에서 func 함수를 구현함
+    }
+};
+
+int main() {
+    Derived d;
+    Base* b = &d;
+    b->func();
+    return 0;
+}
+```
