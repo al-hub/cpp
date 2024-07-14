@@ -7,7 +7,7 @@ C++11과 C++20의 주요 기능을 상세하게 설명하고, 각각의 예시 �
 자동 타입 추론(auto)은 변수 선언 시 컴파일러가 변수의 타입을 자동으로 추론하는 기능입니다. 이를 통해 코드의 가독성이 향상되고, 복잡한 타입 선언을 피할 수 있습니다.
 
 **예시:**
-```
+```cpp
 auto x = 42; // int 타입으로 자동 추론
 auto y = 3.14; // double 타입으로 자동 추론
 auto str = "Hello, World!"; // const char* 타입으로 자동 추론
@@ -24,7 +24,7 @@ for (auto& elem : vec) { // 각 요소에 대한 참조로 자동 추론
 람다 표현식은 간결한 방식으로 함수 객체를 표현할 수 있게 해줍니다. 이를 통해 간단한 일회용 함수나 콜백 함수를 쉽게 작성할 수 있습니다.
 
 **예시:**
-```
+```cpp
 auto add = [](int a, int b) { return a + b; };
 std::cout << add(2, 3) << std::endl; // 5 출력
 
@@ -46,7 +46,7 @@ std::cout << lambda_with_capture(2) << std::endl; // 2배한 값들의 합 출�
 범위 기반 for 루프는 컨테이너의 모든 요소를 쉽게 순회할 수 있도록 해줍니다. 이를 통해 코드가 간결하고 명확해집니다.
 
 **예시:**
-```
+```cpp
 std::vector<int> vec = {1, 2, 3, 4, 5};
 for (int x : vec) {
     std::cout << x << " ";
@@ -65,7 +65,7 @@ for (const auto& [key, value] : map) {
 스마트 포인터는 메모리 관리가 자동으로 이루어지도록 도와주는 객체입니다. 이를 통해 메모리 누수를 방지하고, 코드의 안전성을 높일 수 있습니다. C++11에서는 `std::unique_ptr`, `std::shared_ptr`, `std::weak_ptr` 등이 도입되었습니다.
 
 **예시:**
-```
+```cpp
 std::unique_ptr<int> p1 = std::make_unique<int>(42);
 std::cout << *p1 << std::endl; // 42 출력
 
@@ -84,7 +84,7 @@ if (auto sp = wp.lock()) { // shared_ptr로 승격 가능 여부 확인
 C++11에서는 표준 라이브러리에 스레드 지원이 추가되었습니다. 이를 통해 멀티스레드 프로그래밍이 가능해지고, 병렬 처리를 쉽게 구현할 수 있습니다.
 
 **예시:**
-```
+```cpp
 #include <thread>
 #include <vector>
 #include <iostream>
@@ -120,7 +120,7 @@ int main() {
 코루틴은 비동기 프로그래밍을 지원하는 기능으로, 함수 실행을 일시 중단하고 재개할 수 있습니다. 이를 통해 비동기 작업을 효율적으로 처리할 수 있습니다.
 
 **예시:**
-```
+```cpp
 #include <iostream>
 #include <coroutine>
 #include <future>
@@ -143,7 +143,7 @@ int main() {
 개념은 템플릿의 타입 요구사항을 명확히 정의할 수 있는 기능입니다. 이를 통해 템플릿 인수의 타입 제약을 명확히 하고, 더 나은 컴파일 에러 메시지를 제공합니다.
 
 **예시:**
-```
+```cpp
 #include <concepts>
 #include <iostream>
 #include <type_traits>
@@ -183,7 +183,7 @@ int main() {
 범위 라이브러리는 STL 알고리즘과 컨테이너를 더 쉽게 조합할 수 있도록 해줍니다. 이를 통해 데이터 필터링, 변환 등의 작업을 간결하게 표현할 수 있습니다.
 
 **예시:**
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <ranges>
@@ -207,7 +207,7 @@ int main() {
 모듈은 대규모 프로젝트에서 빌드 시간을 단축하고 컴파일 속도를 향상시키기 위한 기능입니다. 모듈 시스템을 사용하면 헤더 파일의 복잡성을 줄일 수 있습니다.
 
 **예시:**
-```
+```cpp
 // my_module.ixx (모듈 인터페이스 파일)
 export module my_module;
 
@@ -229,7 +229,7 @@ int main() {
 삼중 비교 연산자는 전체 순서 비교를 위한 새로운 연산자입니다. 이를 통해 두 값을 비교하고, 결과를 하나의 표현식으로 얻을 수 있습니다.
 
 **예시:**
-```
+```cpp
 #include <iostream>
 #include <compare>
 #include <vector>
